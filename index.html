@@ -5,12 +5,14 @@
                 margin: 0;
                 text-align: center;
                 font-family: Arial, 'sans-serif';
+                color: rgb(255, 255, 255);
             }
             
             .lock-screen {
                 width: 100vh;
                 height: 100vh;
                 background-color: rgb(255, 255, 255);
+                display: block;
             }
             
             .log-in-window {
@@ -19,17 +21,64 @@
                 background-color: rgb(60, 60, 60);
             }
             
+            .input-box {
+                width: 220px;
+                height: 24px;
+            }
+            
+            .log-in-button {
+                width: 220px;
+                height: 30px;
+            }
+            
             .main-screen {
-                
+                display: none;
             }
         </style>
     </head>
     
     <body>
-        <div class="lock-screen">
+        <script>
+            function login(name) {
+                var lockscreen = document.getElementById("lock-screen");
+                var mainscreen = document.getElementById("main-screen");
+                
+        lockscreen.style.display = "none";
+        mainscreen.style.display = "block";
+        
+        alert("logged in as " + name)
+            }
+            
+            function login_request() {
+                var username = document.getElementById("username").value.toLowerCase();
+                var password = document.getElementById("password").value.toLowerCase();
+                var invalid = document.getElementById("invalid")
+                
+                if (username === "patryk" && password === "patryk120710") {
+                    login(username)
+                }
+                else if (username === "test" && password === "test") {
+                    login(username)
+                }
+                else {
+                 invalid.style.visibility = "visible";
+                }
+            }
+        </script>
+        
+        <div class="lock-screen" id="lock-screen">
             <div class="log-in-window">
-                <input type="password" id="password"></input>
+                <label>Username</label><br>
+                <input class="input-box" type="text" id="username"></input><br><br>
+                <label>Password</label><br>
+                <input class="input-box" type="password" id="password"></input><br>
+                <p style="font-size: 12px; transform: translate(0, -6px); visibility: hidden;" id="invalid">Incorrect username or password</p>
+                <button class="log-in-button" onclick="login_request()">Log In</button>
             </div>
+        </div>
+        
+        <div class="main-screen" id="main-screen">
+            
         </div>
     </body>
 </html>
