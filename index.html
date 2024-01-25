@@ -11,7 +11,7 @@
             .lock-screen {
                 width: 100vh;
                 height: 100vh;
-                background-color: rgb(255, 255, 255);
+                background-color: rgb(200, 200, 200);
                 display: block;
             }
             
@@ -23,12 +23,14 @@
             
             .input-box {
                 width: 220px;
-                height: 24px;
+                height: 30px;
+                border: none;
+                border-radius: 10px;
             }
             
             .log-in-button {
                 width: 220px;
-                height: 30px;
+                height: 34px;
             }
             
             .main-screen {
@@ -72,7 +74,7 @@
                 <input class="input-box" type="text" id="username"></input><br><br>
                 <label>Password</label><br>
                 <input class="input-box" type="password" id="password"></input><br>
-                <p style="font-size: 12px; transform: translate(0, -6px); visibility: hidden;" id="invalid">Incorrect username or password</p>
+                <p style="font-size: 12px; transform: translate(0, -6px); visibility: hidden; color: rgb(255, 0, 0);" id="invalid"><strong>Incorrect username or password</strong></p>
                 <button class="log-in-button" onclick="login_request()">Log In</button>
             </div>
         </div>
